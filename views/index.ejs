@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-CSV-ANALIZER</title>
+</head>
+<body>
+
+    <%- include('./partials/header'); %>
+    
+       <h4><%- fileName %> </h4>
+
+       <div id='myDiv'></div>
+      
+       <script src="plotly.js"></script>
+       <script data-data="<%= JSON.stringify(data) %>">
+          const data = JSON.parse(document.currentScript.dataset.data);
+       </script>
+
+       <script>
+
+            console.log(data);
+            
+            // var trace1 = {
+            //   name: 'temp',
+            //   x: data.time,
+            //   y: data.temp,
+            //   type: 'scatter'
+            // };
+
+            // var trace2 = {
+            //   name: 'hum',
+            //   x: data.time,
+            //   y: data.hum,
+            //   type: 'scatter'
+            // };
+
+            //var datas = [trace1, trace2];
+
+
+            var layout = {
+              autosize: true,
+              //width: 500,
+              height: 600,
+              margin: {
+                l: 50,
+                r: 50,
+                b: 50,
+                t: 50,
+                pad: 4
+              },
+              paper_bgcolor: '#1b1c1d',
+              plot_bgcolor: '#1b1c1d'
+            };
+
+            Plotly.newPlot('myDiv', data, layout);
+        </script>
+
+       </div>
+        </main>
+    
+    <footer>
+      <%- include('./partials/footer'); %>
+    </footer>
+    
+      </body> 
+      </html>
