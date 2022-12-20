@@ -139,7 +139,7 @@ app.post("/upload", (req, res) => {
     })
 
   
-  await fsp.writeFile(location, JSON.stringify(data))
+ // await fsp.writeFile(location, JSON.stringify(data))
   
   res.render("index", {
   fileName: location, 
